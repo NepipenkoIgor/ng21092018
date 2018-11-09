@@ -23,6 +23,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProductsEffects } from './store/effects/products.effect';
 import { CartComponent } from './header/cart/cart.component';
 import { ProductComponent } from './header/cart/product/product.component';
+import { ProductsService } from './content/products/products.service';
+import { CdComponent } from './content/cd/cd.component';
+import { DefaultComponent } from './content/cd/default/default.component';
+import { OnPushComponent } from './content/cd/on-push/on-push.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -36,11 +41,15 @@ import { ProductComponent } from './header/cart/product/product.component';
         ProductsComponent,
         OneProductComponent,
         CartComponent,
-        ProductComponent
+        ProductComponent,
+        CdComponent,
+        DefaultComponent,
+        OnPushComponent
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
+        FormsModule,
         RouterModule.forRoot(routes, { preloadingStrategy: CustomPreloadService }),
         EffectsModule.forRoot([ProductsEffects]),
         StoreModule.forRoot(reducers),
@@ -49,6 +58,7 @@ import { ProductComponent } from './header/cart/product/product.component';
     providers: [
         OneProductResolverService,
         CustomPreloadService,
+        ProductsService,
         {
             provide: BASE_URL_TOKEN,
             useValue: BASE_URL,

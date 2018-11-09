@@ -2,6 +2,7 @@ import { Route } from '@angular/router';
 import { ProductsComponent } from './content/products/products.component';
 import { OneProductComponent } from './content/products/one-product/one-product.component';
 import { OneProductResolverService } from './content/products/one-product/one-product-resolver.service';
+import { CdComponent } from './content/cd/cd.component';
 
 export const routes: Route [] = [
     {
@@ -27,6 +28,10 @@ export const routes: Route [] = [
                 }
             }
         ]
+    },
+    {
+        path: 'cd',
+        component: CdComponent
     },
     {
         path: 'signin',

@@ -2,7 +2,6 @@ import { IProduct } from './products.reducer';
 import { createEntityAdapter, EntityAdapter } from '@ngrx/entity';
 import {
     ADD_PRODUCT_TO_CART,
-    CartActions,
     DECREMENT_PRODUCT_IN_CART,
     DecrementProductInCart,
     INCREMENT_PRODUCT_IN_CART,
@@ -22,7 +21,7 @@ export const adapter: EntityAdapter<ICartProduct> = createEntityAdapter<ICartPro
 
 const cartInitialState = adapter.getInitialState({});
 
-export function cartReducer(state = cartInitialState, action: CartActions) {
+export function cartReducer(state = cartInitialState, action: any) {
     switch (action.type) {
         case ADD_PRODUCT_TO_CART: {
             const entity = state.entities[action.payload._id];
